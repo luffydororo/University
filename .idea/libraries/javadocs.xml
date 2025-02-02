@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="javadocs">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../coding/text-table-formatter-1.1.2.zip!/docs/javadocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../coding/text-table-formatter-1.1.2.zip!/some-examples" />
+    </SOURCES>
+  </library>
+</component>
