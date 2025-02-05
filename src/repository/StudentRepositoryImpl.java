@@ -66,6 +66,37 @@ SELECT id, name,age,email,grade, score FROM students WHERE score >= 90 ORDER BY 
         }
         return topStudents.isEmpty() ? List.of() : topStudents;
     }
+
+    @Override
+    public Double getAverageScore() {
+        double averageScore = 0.0;
+        Connection connection = null;
+        PreparedStatement pre = null;
+        ResultSet resultSet = null;
+        try {
+            connection = DBConfig.getDbConfig();
+            pre = connection.prepareStatement("""
+SELECT AVG(score) AS average_score
+FROM students;
+""");
+            resultSet = pre.executeQuery();
+            if (resultSet.next()) {
+                averageScore = resultSet.getDouble("average_score");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (pre != null) pre.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return averageScore;
+    }
+
     @Override
     public Student getStudentById(int id) {
         try{

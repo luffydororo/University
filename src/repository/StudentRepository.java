@@ -15,5 +15,6 @@ public interface StudentRepository {
     Student updateStudent(int id, UpdateStudentById updateStudentById);
     Integer deleteStudentById(int id);
     List<Student> getTopStudents();
+    Double getAverageScore();
 
 }
